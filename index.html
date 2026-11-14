@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6f5f1" />
+    <script>
+      // 外观（DEC-49）：首屏前应用本机偏好，避免闪烁；与 src/ui/theme.ts 同一规则
+      ;(function () {
+        var p = null
+        try { p = localStorage.getItem('lh.theme') } catch (e) {}
+        var dark = p === 'dark' || (p !== 'light' && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches)
+        if (p === 'light' || p === 'dark') document.documentElement.setAttribute('data-theme', p)
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', dark ? '#262524' : '#f6f5f1')
+      })()
+    </script>
+    <link rel="icon" href="/life-hundred-app/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/life-hundred-app/icon.svg" />
+    <title>人生百格</title>
+    <script type="module" crossorigin src="/life-hundred-app/assets/index-BZmNT5bZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/life-hundred-app/assets/index-DjDvdYgP.css">
+  <link rel="manifest" href="/life-hundred-app/manifest.webmanifest"></head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
